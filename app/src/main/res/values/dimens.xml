@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="numberAndOperationButtonsWidth">56dp</dimen>
+    <dimen name="numberAndOperationButtonsWidth">62dp</dimen>
     <dimen name="numberButtonsHeight">62dp</dimen>
-    <dimen name="operationButtonHeight">112dp</dimen>
+    <dimen name="operationButtonHeight">124dp</dimen>
+    <dimen name="numberSize">70sp</dimen>
 </resources>
