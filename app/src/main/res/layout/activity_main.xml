@@ -12,6 +12,7 @@
         android:layout_height="@dimen/operationButtonHeight"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="16dp"
+        android:onClick="doMath"
         android:text="+"
         app:layout_constraintBottom_toTopOf="@+id/minusButton"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -197,6 +198,7 @@
         android:layout_width="346dp"
         android:layout_height="28dp"
         android:layout_marginBottom="16dp"
+        android:onClick="calculate"
         android:text="Calculate"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -206,7 +208,6 @@
         android:id="@+id/numDisplay"
         android:layout_width="match_parent"
         android:layout_height="112dp"
-        android:text="TextView"
         android:textAlignment="center"
         android:textSize="@dimen/numberSize"
         app:layout_constraintBottom_toBottomOf="parent"
