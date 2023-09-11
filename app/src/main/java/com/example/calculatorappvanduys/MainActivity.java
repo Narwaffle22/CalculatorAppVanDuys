@@ -15,6 +15,8 @@ public class MainActivity extends AppCompatActivity {
     String whichSymbol = "";
     Integer firstNum;
     Integer secondNum;
+    boolean newIteration = true;
+    boolean isPos = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +28,11 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void numericClick (View v){
+
+        if (newIteration){
+            firstNumberInDaBox = "";
+            newIteration = false;
+        }
 
         if (!onSecondNum){
             if (v.getId() == R.id.number1Button){
@@ -101,13 +108,76 @@ public class MainActivity extends AppCompatActivity {
 
         if (v.getId() == R.id.plusButton){
             whichSymbol = "+";
+        } else if (v.getId() == R.id.minusButton){
+            whichSymbol = "-";
+        } else if (v.getId() == R.id.multiplicationButton){
+            whichSymbol = "*";
+        } else if (v.getId() == R.id.divisionButton){
+            whichSymbol = "/";
         }
     }
 
     public void calculate(View v){
-        secondNum = Integer.valueOf(secondNumberInDaBox);
-        int result = firstNum + secondNum;
+        if (onSecondNum){
+            secondNum = Integer.valueOf(secondNumberInDaBox);
+            int result = 0;
+            double divideResult = 0;
+            if (whichSymbol.equals("+")){
+                result = firstNum + secondNum;
+            } else if (whichSymbol.equals("-")){
+                result = firstNum - secondNum;
+            } else if (whichSymbol.equals("*")){
+                result = firstNum * secondNum;
+            } else if (whichSymbol.equals("/")){
+                divideResult = (double) firstNum / secondNum;
+            }
 
-        displayPlace.setText(result+"");
+            if (whichSymbol.equals("/")){
+                displayPlace.setText(divideResult+"");
+            } else {
+                displayPlace.setText(result+"");
+            }
+
+
+            if (result > 0){
+                isPos = true;
+            } else {
+                isPos = false;
+            }
+            onSecondNum = false;
+            firstNumberInDaBox = result + "";
+            secondNumberInDaBox = "";
+            newIteration = true;
+        }
+
+    }
+
+    public void posNeg(View v){
+        if (isPos){
+            if (!onSecondNum){
+                firstNumberInDaBox = "-" + firstNumberInDaBox;
+                displayPlace.setText(firstNumberInDaBox);
+            }else if (onSecondNum){
+                secondNumberInDaBox = "-" + secondNumberInDaBox;
+                displayPlace.setText(secondNumberInDaBox);
+            }
+            isPos = false;
+        } else {
+            if (!onSecondNum){
+                firstNumberInDaBox = firstNumberInDaBox.substring(firstNumberInDaBox.indexOf("-") + 1, firstNumberInDaBox.length());
+                displayPlace.setText(firstNumberInDaBox);
+            }else if (onSecondNum){
+                secondNumberInDaBox = secondNumberInDaBox.substring(secondNumberInDaBox.indexOf("-") + 1, secondNumberInDaBox.length());
+                displayPlace.setText(secondNumberInDaBox);
+            }
+            isPos= true;
+        }
+    }
+
+    public void clearAll(View v){
+        firstNumberInDaBox = "";
+        secondNumberInDaBox = "";
+        displayPlace.setText("0");
+        onSecondNum = false;
     }
 }
