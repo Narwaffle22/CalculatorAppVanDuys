@@ -134,18 +134,19 @@ public class MainActivity extends AppCompatActivity {
 
             if (whichSymbol.equals("/")){
                 displayPlace.setText(divideResult+"");
+                firstNumberInDaBox = divideResult + "";
             } else {
                 displayPlace.setText(result+"");
+                firstNumberInDaBox = result + "";
             }
 
 
-            if (result > 0){
+            if (result > 0 || divideResult > 0){
                 isPos = true;
             } else {
                 isPos = false;
             }
             onSecondNum = false;
-            firstNumberInDaBox = result + "";
             secondNumberInDaBox = "";
             newIteration = true;
         }

@@ -4,4 +4,7 @@
     <dimen name="numberButtonsHeight">62dp</dimen>
     <dimen name="operationButtonHeight">124dp</dimen>
     <dimen name="numberSize">70sp</dimen>
+    <dimen name="buttonFontSize">30sp</dimen>
+    <dimen name="clearAndPosNegFontSize">10sp</dimen>
+    <dimen name="clearAndPosNegHeight">(@dimen/numberButtonsHeight)/2</dimen>
 </resources>
